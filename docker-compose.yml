@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app-installer:
+    image: node:18-alpine
+    working_dir: /app
+    container_name: learn-jenkins-installer
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+      # Anónimo para evitar que los node_modules locales sobrescriban o se mezclen mal, 
+      # aunque si quieres que aparezcan tal cual en tu máquina, puedes omitir esta línea 
+      # y dejar que se creen directamente en tu carpeta local.
+    # command: npm install
+    command: npm start
