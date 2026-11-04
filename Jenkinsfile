@@ -18,6 +18,7 @@ pipeline {
                     ls -la
                     node --version
                     npm --version
+                    rm -rf build/**
                     npm ci
                     npm run build
                     ls -la
@@ -31,7 +32,7 @@ pipeline {
                     reuseNode true
                 }
             }
-            steps{
+            steps {
                 sh '''
                 test -f $BUILD_PATH/$BUILD_FILE_NAME
                 npm test
