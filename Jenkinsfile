@@ -34,7 +34,7 @@ pipeline {
             }
             steps {
                 sh '''
-                test -f $BUILD_PATH/$BUILD_FILE_NAME
+                test -f build/index.htmlss
                 npm test
                 '''
             }
