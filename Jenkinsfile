@@ -1,9 +1,5 @@
 pipeline {
     agent any
-    environment {
-        BUILD_FILE_NAME = 'index.html'
-        BUILD_PATH = 'public/'
-    }
 
     stages {
         stage('Build') {
