@@ -1,3 +1,4 @@
+//d^Ww6+WGST^3&)^
 pipeline {
     agent any
     // Cuidado con las variables de entorno porque pueden colisionar con las variables del propio framework
@@ -67,5 +68,20 @@ pipeline {
                 }
             }
         }   
+
+        stage('Deploy') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
+            steps {
+                sh '''
+                npm install netlify-cli
+                node_modules/.bin/netlify --version
+                '''
+            }
+        }
     }
 }
