@@ -5,7 +5,7 @@ pipeline {
     /*
     */
     environment {
-        NETLIFY_SITE_ID = 'test-jenkins'
+        NETLIFY_SITE_ID = '67fcef03-6f48-4b83-a0f8-14ddda2a3128'
         NETLIFY_AUTH_TOKEN = credentials('netlify-token')
     }
     stages {
