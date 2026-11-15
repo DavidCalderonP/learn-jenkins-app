@@ -6,6 +6,7 @@ pipeline {
     */
     environment {
         NETLIFY_SITE_ID = 'test-jenkins'
+        NETLIFY_AUTH_TOKEN = credentials('netlify-token')
     }
     stages {
         stage('Build') {
@@ -81,9 +82,10 @@ pipeline {
             }
             steps {
                 sh '''
-                npm install netlify-cli@20.1.1
+                npm install netlify-cli
                 node_modules/.bin/netlify --version
                 echo "Site ID: $NETLIFY_SITE_ID"
+                node_modules/.bin/netifly status
                 '''
             }
         }
