@@ -4,6 +4,9 @@ pipeline {
     // Cuidado con las variables de entorno porque pueden colisionar con las variables del propio framework
     /*
     */
+    environment {
+        NETLIFY_SITE_ID = 'test-jenkins'
+    }
     stages {
         stage('Build') {
             agent {
@@ -78,8 +81,9 @@ pipeline {
             }
             steps {
                 sh '''
-                npm install netlify-cli
+                npm install netlify-cli@20.1.1
                 node_modules/.bin/netlify --version
+                echo "Site ID: $NETLIFY_SITE_ID"
                 '''
             }
         }
